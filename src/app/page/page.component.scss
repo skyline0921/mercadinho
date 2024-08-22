@@ -1,0 +1,147 @@
+main{
+    display: flex;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    max-height: 100%;
+    .productsInformations{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(206, 195, 195, 0.192);
+        max-width: 500px;
+        padding: 25px;
+        border-radius: 10px;
+        top: 55px;
+        span{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            border: 1px solid orangered;
+            background-color: white;
+            max-width: 120px;
+            border-radius: 20px;
+            padding: 5px;
+            left: 10px;
+            bottom: 20px;
+        }
+        .productsAvailable{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            h4{
+                color: orangered;
+            }
+            h5{
+                color: rgb(65, 63, 63);
+            }
+            .icon{
+                height: 20px;
+            }
+            img{
+                height: 150px;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    .cart{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        max-height: 260px;
+        margin-left: 20px;
+        margin-top: 20px;
+        .seeProducts{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            background-color: rgba(206, 195, 195, 0.192);
+            border-radius: 10px;
+            padding: 25px;
+            height: 220px;
+            li{
+                display: flex;
+                width: 100%;
+                gap: 10px;
+            }
+            button{
+                background-color: white;
+                padding: 5px;
+                border-radius: 15px;
+                margin: 5px;
+            }
+            .confirmBuy{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-items: center;
+                border: none;
+                position: relative;
+                width: 300px;
+                padding: 10px;
+                border-radius: 30px;
+                color: white;
+                background-color: rgb(252, 123, 76);
+            }
+            h1{
+                width: 100%;
+                color: orangered;
+            }
+            img{
+                width: 100%;
+                height: 150px;
+            }
+            p{
+                text-align: center;
+                margin-bottom: 10px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+        }
+    }
+
+    .cartConfirmed{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.0666666667);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        .confirmedPurchase{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            background-color: rgb(255, 255, 255);
+            padding: 25px;
+            border-radius: 15px;
+            min-height: 100px;
+            max-height: 200px;
+            .textDiv{
+                display: flex;
+                justify-content: start;
+                flex-direction: column;
+                position: relative;
+                gap: 15px;
+                button{
+                    color: white;
+                    background-color: orangered;
+                    border: none;
+                    width: 100%;
+                    padding: 10px;
+                    border-radius: 25px;
+                }
+            }
+        }
+    }
+}

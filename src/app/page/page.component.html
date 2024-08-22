@@ -1,0 +1,190 @@
+<main>
+  <h1>Desserts</h1>
+  <section class="productsInformations">
+    <div class="productsAvailable">
+      <div
+        class="product"
+        (click)="buy({ name: 'Waffle with Berries', price: 6.5 })"
+      >
+        <img src="/assets/image-waffle-desktop.jpg" alt="" />
+        <span
+          ><img class="icon" src="/assets/icon-add-to-cart.svg" alt="" />Add To
+          Cart</span
+        >
+        <h5>Waffle</h5>
+        <h5>Waffle with Berries</h5>
+        <h4>$6.50</h4>
+      </div>
+
+      <div
+        class="product"
+        (click)="buy({ name: 'Vanilla Bean Crème Brûlée', price: 7.0 })"
+      >
+        <img src="/assets/image-creme-brulee-desktop.jpg" alt="" />
+        <span
+          ><img class="icon" src="/assets/icon-add-to-cart.svg" alt="" />Add To Cart</span
+        >
+        <h5>Crème Brûlée</h5>
+        <h5>Vanilla Bean Crème Brûlée</h5>
+        <h4>$7.00</h4>
+      </div>
+
+      <div
+        class="product"
+        (click)="buy({ name: 'Macaron Mix of Five', price: 8.0 })"
+      >
+        <img src="/assets/image-macaron-desktop.jpg" alt="" />
+        <span
+          ><img class="icon" src="/assets/icon-add-to-cart.svg" alt="" />Add To
+          Cart</span
+        >
+        <h5>Macaron</h5>
+        <h5>Macaron Mix of Five</h5>
+        <h4>$8.00</h4>
+      </div>
+
+      <div
+        class="product"
+        (click)="buy({ name: 'Classic Tiramisu', price: 5.5 })"
+      >
+        <img src="/assets/image-tiramisu-desktop.jpg" alt="" />
+        <span
+          ><img class="icon" src="/assets/icon-add-to-cart.svg" alt="" />Add To
+          Cart</span
+        >
+        <h5>Tiramisu</h5>
+        <h5>Classic Tiramisu</h5>
+        <h4>$5.50</h4>
+      </div>
+
+      <div
+        class="product"
+        (click)="buy({ name: 'Pistachio Baklava', price: 4.0 })"
+      >
+        <img src="/assets/image-baklava-desktop.jpg" alt="" />
+        <span
+          ><img class="icon" src="/assets/icon-add-to-cart.svg" alt="" />Add To
+          Cart</span
+        >
+        <h5>Baklava</h5>
+        <h5>Pistachio Baklava</h5>
+        <h4>$4.00</h4>
+      </div>
+
+      <div
+        class="product"
+        (click)="buy({ name: 'Lemon Meringue Pie', price: 5.0 })"
+      >
+        <img src="/assets/image-meringue-desktop.jpg" alt="" />
+        <span
+          ><img class="icon" src="/assets/icon-add-to-cart.svg" alt="" />Add To
+          Cart</span
+        >
+        <h5>Pie</h5>
+        <h5>Lemon Meringue Pie</h5>
+        <h4>$5.00</h4>
+      </div>
+
+      <div
+        class="product"
+        (click)="buy({ name: 'Red Velvet Cake', price: 4.5 })"
+      >
+        <img src="/assets/image-cake-desktop.jpg" alt="" />
+        <span
+          ><img class="icon" src="/assets/icon-add-to-cart.svg" alt="" />Add To
+          Cart</span
+        >
+        <h5>Cake</h5>
+        <h5>Red Velvet Cake</h5>
+        <h4>$4.50</h4>
+      </div>
+
+      <div
+        class="product"
+        (click)="buy({ name: 'Salted Caramel Brownie', price: 5.5 })"
+      >
+        <img src="/assets/image-brownie-desktop.jpg" alt="" />
+        <span
+          ><img class="icon" src="/assets/icon-add-to-cart.svg" alt="" />Add To
+          Cart</span
+        >
+        <h5>Brownie</h5>
+        <h5>Salted Caramel Brownie</h5>
+        <h4>$5.50</h4>
+      </div>
+
+      <div
+        class="product"
+        (click)="buy({ name: 'Vanilla Panna Cotta', price: 6.5 })"
+      >
+        <img src="/assets/image-panna-cotta-desktop.jpg" alt="" />
+        <span
+          ><img class="icon" src="/assets/icon-add-to-cart.svg" alt="" />Add To
+          Cart</span
+        >
+        <h5>Panna Cotta</h5>
+        <h5>Vanilla Panna Cotta</h5>
+        <h4>$6.50</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="cart">
+    <div class="seeProducts" *ngIf="!orderConfirmed">
+      <h1>
+          Your Cart ({{ totalItems }})
+      </h1>
+  
+      <div class="options" *ngIf="cartItems.length === 0">
+        <img src="/assets/illustration-empty-cart.svg" alt="" />
+        <p>Your added items will appear here</p>
+  
+        <button type="button" class="confirmBuy" 
+        (click)="confirmOrder()" 
+        [disabled]="cartItems.length === 0">
+  Confirm Order
+</button>
+
+      </div>
+  
+      <div *ngIf="cartItems.length > 0">
+        <ul>
+          <li *ngFor="let item of cartItems">
+            <h5>{{ item.name }}</h5>
+            <h4>{{ item.price | currency : "USD" }} x {{ item.quantity }}</h4>
+  
+            <div class="quantityControls">
+              <button (click)="decreaseQuantity(item)">-</button>
+              <span>{{ item.quantity }}</span>
+              <button (click)="buy(item)">+</button>
+            </div>
+  
+          </li>
+        </ul>
+  
+        <h3>
+          Total Price: {{ totalPrice | currency : "USD" }}
+      </h3>
+        <button type="button" class="confirmBuy" (click)="confirmOrder()">
+          Confirm Order
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cartConfirmed">
+    <div class="confirmedPurchase" *ngIf="orderConfirmed">
+      <img class="icon" src="/assets/icon-order-confirmed.svg" alt="" />
+  
+      <div class="textDiv">
+        <h1>Order Confirmed</h1>
+        <span>We hope you enjoy your food!</span>
+  
+        <h4>Order total {{ totalPrice | currency : "USD" }}</h4>
+        <button type="button" class="startNew" (click)="startNewOrder()">
+          Start New Order
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
